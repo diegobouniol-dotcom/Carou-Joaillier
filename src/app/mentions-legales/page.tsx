@@ -63,8 +63,8 @@ export default function MentionsLegalesPage() {
                 interdite sans autorisation écrite préalable.
               </p>
               <p>
-                Les photographies d&apos;ambiance utilisées en illustration sont
-                fournies par Unsplash sous licence libre (Unsplash License).
+                Les photographies de créations, restaurations et atelier
+                présentes sur le site sont la propriété de Carou Joaillier.
               </p>
             </Section>
 

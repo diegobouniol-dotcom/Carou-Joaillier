@@ -57,7 +57,7 @@ export default function SurMesurePage() {
         {/* Hero */}
         <section className="relative bg-noir-velours pt-40 pb-24 md:pb-28 overflow-hidden">
           <Image
-            src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=2000&q=85"
+            src="/images/03-mains-atelier-HD.jpg"
             alt=""
             fill
             sizes="100vw"

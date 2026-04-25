@@ -31,28 +31,24 @@ const SAVOIR_FAIRE = [
 
 const GALERIE = [
   {
-    src: "https://images.unsplash.com/photo-1605100804763-247f67b3557e?auto=format&fit=crop&w=1400&q=85",
-    alt: "Bague de fiançailles diamant solitaire",
+    src: "/images/02-bague-pierres-creation-HD.jpg",
+    badge: "Création",
+    titre: "Bague multi-pierres",
+    description:
+      "Or rose, aigue-marine, améthyste, saphir, péridot, tourmaline rose",
   },
   {
-    src: "https://images.unsplash.com/photo-1611652022419-a9419f74343d?auto=format&fit=crop&w=1400&q=85",
-    alt: "Alliance or jaune fait main",
+    src: "/images/01-cartier-diamants-HD.jpg",
+    badge: "Restauration",
+    titre: "Montre Cartier sertie diamants",
+    description: "Sertissage et restauration de pièce de haute horlogerie",
   },
   {
-    src: "https://images.unsplash.com/photo-1599643478518-a784e5dc4c8f?auto=format&fit=crop&w=1400&q=85",
-    alt: "Pendentif émeraude joaillerie",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1535632787350-4e68ef0ac584?auto=format&fit=crop&w=1400&q=85",
-    alt: "Collier perles de culture",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=1400&q=85",
-    alt: "Bague saphir taille coussin",
-  },
-  {
-    src: "https://images.unsplash.com/photo-1611591437281-460bfbe1220a?auto=format&fit=crop&w=1400&q=85",
-    alt: "Bracelet or jaune maille tressée",
+    src: "/images/03-mains-atelier-HD.jpg",
+    badge: "L'atelier",
+    titre: "Le geste de l'artisan",
+    description:
+      "Mesure et ajustement d'une bague à l'atelier de Larmor-Plage",
   },
 ];
 
@@ -103,14 +99,20 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative min-h-screen w-full flex items-center bg-noir-velours overflow-hidden">
         <Image
-          src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?auto=format&fit=crop&w=2400&q=85"
-          alt="Bague joaillerie sur fond noir"
+          src="/images/02-bague-pierres-creation-HD.jpg"
+          alt="Bague or rose multi-pierres précieuses, création Carou Joaillier"
           fill
           priority
           sizes="100vw"
-          className="object-cover opacity-70"
+          className="object-cover object-[center_right]"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-noir-velours/85 via-noir-velours/40 to-noir-velours/70" />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              "linear-gradient(to right, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.55) 60%, rgba(10,9,8,0.3) 100%)",
+          }}
+        />
         <div className="absolute inset-0 bg-gradient-to-t from-noir-velours via-noir-velours/30 to-transparent" />
 
         <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 w-full pt-32 pb-20">
@@ -218,22 +220,34 @@ export default function HomePage() {
             <div className="divider-or w-32 mx-auto mt-8" />
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 justify-items-center">
             {GALERIE.map((img) => (
-              <div
-                key={img.alt}
-                className="relative aspect-square overflow-hidden bg-noir-profond group cursor-pointer"
+              <article
+                key={img.titre}
+                className="group w-full max-w-[380px] border border-or-rose/20 hover:border-or-rose/50 bg-noir-profond/40 transition-colors"
               >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-or-rose/0 group-hover:bg-or-rose/20 transition-colors duration-500" />
-                <div className="absolute inset-0 ring-0 group-hover:ring-1 group-hover:ring-or-rose/40 transition-all" />
-              </div>
+                <div className="relative aspect-[3/4] overflow-hidden bg-noir-profond">
+                  <Image
+                    src={img.src}
+                    alt={img.titre}
+                    fill
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute top-4 left-4 bg-or-rose text-noir-velours text-[10px] tracking-[0.28em] uppercase font-semibold px-3 py-1.5">
+                    {img.badge}
+                  </div>
+                  <div className="absolute inset-0 bg-or-rose/0 group-hover:bg-or-rose/10 transition-colors duration-500" />
+                </div>
+                <div className="p-6">
+                  <h3 className="font-display italic text-ivoire text-2xl mb-2 leading-tight">
+                    {img.titre}
+                  </h3>
+                  <p className="text-gris-perle text-sm leading-[1.6]">
+                    {img.description}
+                  </p>
+                </div>
+              </article>
             ))}
           </div>
 
@@ -297,13 +311,13 @@ export default function HomePage() {
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2">
           <div className="relative min-h-[400px] lg:min-h-[700px]">
             <Image
-              src="https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?auto=format&fit=crop&w=1400&q=85"
-              alt="Atelier joaillier mains travail outils"
+              src="/images/03-mains-atelier-HD.jpg"
+              alt="Mains de Jean-Marc Carou mesurant une bague à l'atelier"
               fill
               sizes="(max-width: 1024px) 100vw, 50vw"
-              className="object-cover"
+              className="object-cover object-center"
             />
-            <div className="absolute inset-0 bg-noir-velours/15" />
+            <div className="absolute inset-0 bg-noir-velours/10" />
           </div>
 
           <div className="px-6 lg:px-16 py-20 lg:py-32 flex flex-col justify-center">
