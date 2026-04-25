@@ -97,54 +97,72 @@ export default function HomePage() {
       <Header />
 
       {/* HERO */}
-      <section className="relative min-h-screen w-full flex items-center bg-noir-velours overflow-hidden">
-        <Image
-          src="/images/02-bague-pierres-creation-HD.jpg"
-          alt="Bague or rose multi-pierres précieuses, création Carou Joaillier"
-          fill
-          priority
-          sizes="100vw"
-          className="object-cover object-[center_right]"
-        />
-        <div
-          className="absolute inset-0"
-          style={{
-            background:
-              "linear-gradient(to right, rgba(10,9,8,0.85) 0%, rgba(10,9,8,0.55) 60%, rgba(10,9,8,0.3) 100%)",
-          }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-noir-velours via-noir-velours/30 to-transparent" />
+      <section className="relative min-h-screen w-full bg-noir-velours overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-12 min-h-screen">
+          {/* Texte */}
+          <div className="md:col-span-7 flex items-center order-2 md:order-1 px-6 lg:px-16 xl:px-24 pt-12 md:pt-32 pb-20 md:pb-20">
+            <div className="max-w-2xl">
+              <p className="text-or-rose text-[11px] md:text-[12px] tracking-[0.32em] uppercase font-medium mb-8 animate-fade-in-up">
+                Joaillier à Larmor-Plage — depuis 1992
+              </p>
+              <h1 className="font-display italic text-ivoire text-[56px] sm:text-[72px] md:text-[80px] lg:text-[104px] xl:text-[120px] leading-[0.95] tracking-tight mb-8 animate-fade-in-up">
+                L&apos;art de l&apos;unique.
+              </h1>
+              <p className="text-gris-perle text-[17px] md:text-[19px] leading-[1.65] max-w-md mb-10 animate-fade-in-up">
+                Création de bijoux sur-mesure, pièces d&apos;exception,
+                transformation et restauration. Place Notre Dame.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
+                <Link
+                  href="/creations"
+                  className="inline-flex items-center justify-center bg-or-rose hover:bg-or-sombre text-noir-velours text-[12px] tracking-[0.22em] uppercase font-semibold px-8 py-4 transition-colors"
+                >
+                  Découvrir nos créations
+                </Link>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center justify-center border border-or-rose/60 hover:border-or-rose text-ivoire text-[12px] tracking-[0.22em] uppercase font-semibold px-8 py-4 transition-colors"
+                >
+                  Prendre rendez-vous
+                </Link>
+              </div>
+            </div>
+          </div>
 
-        <div className="relative max-w-[1400px] mx-auto px-6 lg:px-12 w-full pt-32 pb-20">
-          <div className="max-w-2xl">
-            <p className="text-or-rose text-[11px] md:text-[12px] tracking-[0.32em] uppercase font-medium mb-8 animate-fade-in-up">
-              Joaillier à Larmor-Plage — depuis 1992
-            </p>
-            <h1 className="font-display italic text-ivoire text-[64px] md:text-[88px] lg:text-[110px] leading-[0.95] tracking-tight mb-8 animate-fade-in-up">
-              L&apos;art de l&apos;unique.
-            </h1>
-            <p className="text-gris-perle text-[17px] md:text-[19px] leading-[1.65] max-w-md mb-10 animate-fade-in-up">
-              Création de bijoux sur-mesure, pièces d&apos;exception,
-              transformation et restauration. Place Notre Dame.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 animate-fade-in-up">
-              <Link
-                href="/creations"
-                className="inline-flex items-center justify-center bg-or-rose hover:bg-or-sombre text-noir-velours text-[12px] tracking-[0.22em] uppercase font-semibold px-8 py-4 transition-colors"
-              >
-                Découvrir nos créations
-              </Link>
-              <Link
-                href="/contact"
-                className="inline-flex items-center justify-center border border-or-rose/60 hover:border-or-rose text-ivoire text-[12px] tracking-[0.22em] uppercase font-semibold px-8 py-4 transition-colors"
-              >
-                Prendre rendez-vous
-              </Link>
+          {/* Photo */}
+          <div className="md:col-span-5 relative flex items-center justify-center order-1 md:order-2 px-6 md:px-10 lg:px-14 pt-32 md:pt-32 pb-10 md:pb-20">
+            {/* Halo lumineux discret */}
+            <div
+              aria-hidden
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                background:
+                  "radial-gradient(circle at 50% 50%, rgba(200,168,120,0.18) 0%, rgba(200,168,120,0.05) 35%, transparent 65%)",
+              }}
+            />
+            <div className="relative w-full max-w-[400px] md:max-w-[520px] lg:max-w-[600px] aspect-square border border-or-rose/20 bg-noir-profond/40 p-4 md:p-6">
+              <div className="relative w-full h-full">
+                <Image
+                  src="/images/02-bague-pierres-creation-HD.jpg"
+                  alt="Bague or rose multi-pierres précieuses, création Carou Joaillier"
+                  fill
+                  priority
+                  quality={95}
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                  placeholder="empty"
+                  className="object-contain"
+                />
+              </div>
+              {/* Coins or-rose */}
+              <span className="absolute -top-px -left-px w-6 h-6 border-t border-l border-or-rose" />
+              <span className="absolute -top-px -right-px w-6 h-6 border-t border-r border-or-rose" />
+              <span className="absolute -bottom-px -left-px w-6 h-6 border-b border-l border-or-rose" />
+              <span className="absolute -bottom-px -right-px w-6 h-6 border-b border-r border-or-rose" />
             </div>
           </div>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ivoire/60 text-[10px] tracking-[0.4em] uppercase">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 text-ivoire/60 text-[10px] tracking-[0.4em] uppercase hidden md:block">
           ↓ Découvrir
         </div>
       </section>
