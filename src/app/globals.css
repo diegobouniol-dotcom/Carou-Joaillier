@@ -1,0 +1,84 @@
+@import "tailwindcss";
+
+:root {
+  --noir-velours: #0A0908;
+  --noir-profond: #050403;
+  --ivoire: #F8F4ED;
+  --or-rose: #C8A878;
+  --or-sombre: #8B6F47;
+  --rouge-bordeaux: #4A1C1C;
+  --gris-perle: #C8C2B8;
+}
+
+@theme inline {
+  --color-noir-velours: var(--noir-velours);
+  --color-noir-profond: var(--noir-profond);
+  --color-ivoire: var(--ivoire);
+  --color-or-rose: var(--or-rose);
+  --color-or-sombre: var(--or-sombre);
+  --color-rouge-bordeaux: var(--rouge-bordeaux);
+  --color-gris-perle: var(--gris-perle);
+  --font-display: var(--font-cormorant);
+  --font-sans: var(--font-manrope);
+}
+
+html,
+body {
+  background: var(--ivoire);
+  color: var(--noir-velours);
+}
+
+body {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.font-display {
+  font-family: var(--font-cormorant), Georgia, serif;
+}
+
+.wordmark {
+  font-family: var(--font-cormorant), Georgia, serif;
+  font-weight: 600;
+  font-variant: small-caps;
+  letter-spacing: 0.18em;
+}
+
+.tracking-widest-plus {
+  letter-spacing: 0.32em;
+}
+
+::selection {
+  background: var(--or-rose);
+  color: var(--noir-velours);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.9s ease-out forwards;
+}
+
+.divider-or {
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--or-rose) 50%,
+    transparent 100%
+  );
+}
